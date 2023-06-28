@@ -2,9 +2,12 @@ package GupangMSA.sellerservice.domain;
 
 import GupangMSA.sellerservice.domain.enums.SellerStatus;
 import GupangMSA.sellerservice.service.holder.ClockHolder;
+import GupangMSA.sellerservice.service.holder.PasswordHolder;
 import GupangMSA.sellerservice.service.holder.UuidHolder;
 import lombok.Builder;
+import lombok.Getter;
 
+@Getter
 public class Seller {
 
     private final Long id;
@@ -12,6 +15,7 @@ public class Seller {
     private final String representative;
 
     private final String email;
+    private final String password;
     private final String city;
     private final String street;
 
@@ -28,13 +32,14 @@ public class Seller {
 
     @Builder
     public Seller(Long id, String companyName, String representative,
-                  String email, String city, String street, String zipcode,
+                  String email, String password, String city, String street, String zipcode,
                   String phoneNumber, SellerStatus status, String sellerUuid,
                   Long lastLogin, Long joined) {
         this.id = id;
         this.companyName = companyName;
         this.representative = representative;
         this.email = email;
+        this.password = password;
         this.city = city;
         this.street = street;
         this.zipcode = zipcode;
@@ -46,11 +51,12 @@ public class Seller {
     }
 
     public static Seller fromSellerCreate(SellerCreate sellerCreate, ClockHolder clockHolder,
-                                          UuidHolder uuidHolder) {
+                                          UuidHolder uuidHolder, PasswordHolder passwordHolder) {
         return Seller.builder()
                 .companyName(sellerCreate.getCompanyName())
                 .representative(sellerCreate.getRepresentative())
                 .email(sellerCreate.getEmail())
+                .password(passwordHolder.password(sellerCreate.getPassword()))
                 .city(sellerCreate.getCity())
                 .street(sellerCreate.getStreet())
                 .zipcode(sellerCreate.getZipcode())
@@ -64,9 +70,11 @@ public class Seller {
     public Seller login(ClockHolder clockHolder) {
 
         return Seller.builder()
+                .id(id)
                 .companyName(companyName)
                 .representative(representative)
                 .email(email)
+                .password(password)
                 .city(city)
                 .street(street)
                 .zipcode(zipcode)

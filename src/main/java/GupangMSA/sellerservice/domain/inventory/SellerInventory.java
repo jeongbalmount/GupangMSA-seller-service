@@ -1,4 +1,4 @@
-package GupangMSA.sellerservice.domain.product;
+package GupangMSA.sellerservice.domain.inventory;
 
 import lombok.RequiredArgsConstructor;
 

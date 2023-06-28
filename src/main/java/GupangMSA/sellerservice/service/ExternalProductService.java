@@ -1,9 +1,8 @@
 package GupangMSA.sellerservice.service;
 
 import GupangMSA.sellerservice.domain.product.SellerProduct;
-import GupangMSA.sellerservice.domain.product.SellerProductResponse;
 import GupangMSA.sellerservice.domain.product.SellerProductUpdate;
-import GupangMSA.sellerservice.infrastructure.ExternalProductRepository;
+import GupangMSA.sellerservice.infrastructure.SellerProductConnector;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,28 +12,26 @@ import java.util.List;
 @Service
 public class ExternalProductService {
 
-    private final ExternalProductRepository repository;
+    private final SellerProductConnector connector;
 
     // 등록
-    SellerProductResponse create(SellerProduct sellerProduct) {
-        return repository.save(sellerProduct);
+    void create(SellerProduct request) {
+        connector.save(request);
     }
 
     // 조회
-    List<SellerProduct> findById(Long id) {
-        return repository.findById(id);
+    List<SellerProduct> findBySellerId(Long id) {
+        return connector.findBySellerId(id);
     }
 
     // 수정
     SellerProduct update(SellerProductUpdate update) {
-        return repository.update(update);
+        return connector.update(update);
     }
 
     // 삭제
-    SellerProductResponse delete(Long productId) {
-        return repository.delete(productId);
+    void delete(Long productId) {
+        connector.delete(productId);
     }
-
-
 
 }

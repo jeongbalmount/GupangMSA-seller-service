@@ -1,22 +1,24 @@
 package GupangMSA.sellerservice.domain.product;
 
 import lombok.Builder;
+import lombok.Getter;
 
-import java.util.List;
-
+@Getter
 public class SellerProduct {
 
+    private final Long id;
+    private final Long sellerId;
     private final String name;
     private final int price;
-    private final List<String> urls;
     private final String category;
     private final String description;
 
     @Builder
-    public SellerProduct(String name, int price, List<String> urls, String category, String description) {
+    public SellerProduct(Long id, Long sellerId, String name, int price, String category, String description) {
+        this.id = id;
+        this.sellerId = sellerId;
         this.name = name;
         this.price = price;
-        this.urls = urls;
         this.category = category;
         this.description = description;
     }
