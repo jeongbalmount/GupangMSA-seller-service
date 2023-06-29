@@ -22,4 +22,5 @@ public class SellerProduct {
         this.category = category;
         this.description = description;
     }
+
 }
