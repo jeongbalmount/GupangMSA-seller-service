@@ -1,6 +1,7 @@
 package GupangMSA.sellerservice.service;
 
-import GupangMSA.sellerservice.domain.product.SellerProduct;
+import GupangMSA.sellerservice.domain.product.SellerProductResponse;
+import GupangMSA.sellerservice.domain.product.SellerProductRequest;
 import GupangMSA.sellerservice.domain.product.SellerProductUpdate;
 import GupangMSA.sellerservice.exception.product.NoProductException;
 import GupangMSA.sellerservice.infrastructure.SellerProductConnector;
@@ -16,21 +17,21 @@ public class ExternalProductService {
     private final SellerProductConnector connector;
 
     // 등록
-    SellerProduct create(SellerProduct request) {
+    SellerProductResponse create(SellerProductRequest request) {
         return connector.save(request);
     }
 
-    SellerProduct findById(Long id) {
+    SellerProductResponse findById(Long id) {
         return connector.findById(id).orElseThrow(() -> new NoProductException("no found product"));
     }
 
     // 조회
-    List<SellerProduct> findBySellerId(Long id) {
+    List<SellerProductResponse> findBySellerId(Long id) {
         return connector.findBySellerId(id);
     }
 
     // 수정
-    SellerProduct update(Long id, SellerProductUpdate update) {
+    SellerProductResponse update(Long id, SellerProductUpdate update) {
         return connector.update(id, update);
     }
 

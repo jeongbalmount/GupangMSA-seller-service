@@ -1,6 +1,7 @@
 package GupangMSA.sellerservice.service;
 
-import GupangMSA.sellerservice.domain.product.SellerProduct;
+import GupangMSA.sellerservice.domain.product.SellerProductResponse;
+import GupangMSA.sellerservice.domain.product.SellerProductRequest;
 import GupangMSA.sellerservice.domain.product.SellerProductUpdate;
 import GupangMSA.sellerservice.exception.product.NoProductException;
 import GupangMSA.sellerservice.infrastructure.SellerProductConnector;
@@ -22,33 +23,36 @@ public class ExternalProductServiceTest {
     @BeforeEach
     void init() {
         SellerProductConnector connector = new FakeSellerProductConnector();
-        SellerProduct sellerProduct1 = SellerProduct.builder()
+        SellerProductRequest request1 = SellerProductRequest.builder()
                 .id(1L)
                 .sellerId(1L)
                 .name("orange")
                 .price(10000)
+                .count(10)
                 .category("fruit")
                 .description("good quality")
                 .build();
-        SellerProduct sellerProduct2 = SellerProduct.builder()
+        SellerProductRequest request2 = SellerProductRequest.builder()
                 .id(2L)
                 .sellerId(1L)
                 .name("laptop")
                 .price(200000)
+                .count(20)
                 .category("tech")
                 .description("good tech")
                 .build();
-        SellerProduct sellerProduct3 = SellerProduct.builder()
+        SellerProductRequest request3 = SellerProductRequest.builder()
                 .id(3L)
                 .sellerId(2L)
                 .name("phone")
                 .price(90000)
+                .count(30)
                 .category("tech")
                 .description("good phone")
                 .build();
-        connector.save(sellerProduct1);
-        connector.save(sellerProduct2);
-        connector.save(sellerProduct3);
+        connector.save(request1);
+        connector.save(request2);
+        connector.save(request3);
 
         this.externalProductService = new ExternalProductService(connector);
     }
@@ -56,15 +60,16 @@ public class ExternalProductServiceTest {
     @Test
     void create로_product를_만들_수_있다() {
         // given
-        SellerProduct sellerProduct = SellerProduct.builder()
+        SellerProductRequest request = SellerProductRequest.builder()
                 .sellerId(1L)
                 .name("great apple")
                 .price(1000)
+                .count(100)
                 .category("fruit")
                 .description("good quality")
                 .build();
         // when
-        SellerProduct newSellerProduct = this.externalProductService.create(sellerProduct);
+        SellerProductResponse newSellerProduct = this.externalProductService.create(request);
         // then
         assertThat(newSellerProduct.getId()).isNotNull();
         assertThat(newSellerProduct.getName()).isEqualTo("great apple");
@@ -75,7 +80,7 @@ public class ExternalProductServiceTest {
         // given
 
         // when
-        SellerProduct sellerProduct = this.externalProductService.findById(1L);
+        SellerProductResponse sellerProduct = this.externalProductService.findById(1L);
 
         // then
         assertThat(sellerProduct.getName()).isEqualTo("orange");
@@ -85,10 +90,10 @@ public class ExternalProductServiceTest {
     void findbySellerId_메서드로_seller가_등록한_product들을_찾을_수_있다() {
         // given
         // when
-        List<SellerProduct> products = this.externalProductService.findBySellerId(1L);
+        List<SellerProductResponse> products = this.externalProductService.findBySellerId(1L);
 
         // then
-        for (SellerProduct product : products) {
+        for (SellerProductResponse product : products) {
             assertThat(product.getSellerId()).isEqualTo(1L);
         }
     }
@@ -103,7 +108,7 @@ public class ExternalProductServiceTest {
                 .build();
 
         // when
-        SellerProduct updateProduct = this.externalProductService.update(3L, sellerProductUpdate);
+        SellerProductResponse updateProduct = this.externalProductService.update(3L, sellerProductUpdate);
 
         // then
         assertThat(updateProduct.getName()).isEqualTo("another name");
