@@ -13,12 +13,14 @@ public class ExternalInventoryServiceTest {
     @BeforeEach
     void init() {
 
-        SellerInventoryConnector connector = new FakeSellerInventoryConnector();
-        this.externalInventoryService = new ExternalInventoryService(connector);
+//        SellerInventoryConnector connector = new FakeSellerInventoryConnector();
+//        this.externalInventoryService = new ExternalInventoryService(connector);
 
     }
 
     @Test
-    void findByProductId로_product
+    void findByProductId로_product() {
+
+    }
 
 }
