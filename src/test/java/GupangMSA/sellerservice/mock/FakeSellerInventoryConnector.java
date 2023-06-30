@@ -29,11 +29,11 @@ public class FakeSellerInventoryConnector implements SellerInventoryConnector {
                 .count(10)
                 .build();
         SellerInventory sellerInventory2 = SellerInventory.builder()
-                .productId(1L)
+                .productId(2L)
                 .count(20)
                 .build();
         SellerInventory sellerInventory3 = SellerInventory.builder()
-                .productId(2L)
+                .productId(3L)
                 .count(1000)
                 .build();
         data.add(sellerInventory1);
