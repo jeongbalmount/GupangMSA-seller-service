@@ -50,9 +50,9 @@ public class FakeSellerProductConnector implements SellerProductConnector {
     }
 
     @Override
-    public SellerProductResponse update(Long id, SellerProductUpdate sellerProductUpdate) {
+    public SellerProductResponse update(SellerProductUpdate sellerProductUpdate) {
         Optional<SellerProductResponse> optionalSellerProduct = data.stream().filter(item -> Objects.equals(item.getId(),
-                id)).findAny();
+                sellerProductUpdate.getId())).findAny();
 
 
         SellerProductResponse sellerProduct = optionalSellerProduct.orElseThrow(() ->

@@ -5,12 +5,15 @@ import lombok.Getter;
 
 @Getter
 public class SellerProductUpdate {
+
+    private final Long id;
     private final String name;
     private final int price;
     private final String description;
 
     @Builder
-    public SellerProductUpdate(String name, int price, String description) {
+    public SellerProductUpdate(Long id, String name, int price, String description) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;

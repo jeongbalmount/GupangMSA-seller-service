@@ -23,4 +23,15 @@ public class SellerProductResponse {
         this.description = description;
     }
 
+    public static SellerProductResponse from(Long id, SellerProductRequest request) {
+        return SellerProductResponse.builder()
+                .id(id)
+                .sellerId(request.getSellerId())
+                .name(request.getName())
+                .price(request.getPrice())
+                .category(request.getCategory())
+                .description(request.getDescription())
+                .build();
+    }
+
 }

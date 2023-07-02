@@ -22,7 +22,6 @@ public class ExternalInventoryServiceTest {
     @BeforeEach
     void init() {
         SellerProductRequest request1 = SellerProductRequest.builder()
-                .id(1L)
                 .sellerId(1L)
                 .name("orange")
                 .price(10000)
@@ -31,7 +30,6 @@ public class ExternalInventoryServiceTest {
                 .description("good quality")
                 .build();
         SellerProductRequest request2 = SellerProductRequest.builder()
-                .id(2L)
                 .sellerId(1L)
                 .name("laptop")
                 .price(200000)
@@ -40,7 +38,6 @@ public class ExternalInventoryServiceTest {
                 .description("good tech")
                 .build();
         SellerProductRequest request3 = SellerProductRequest.builder()
-                .id(3L)
                 .sellerId(2L)
                 .name("phone")
                 .price(90000)

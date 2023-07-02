@@ -24,7 +24,6 @@ public class ExternalProductServiceTest {
     void init() {
         SellerProductConnector connector = new FakeSellerProductConnector();
         SellerProductRequest request1 = SellerProductRequest.builder()
-                .id(1L)
                 .sellerId(1L)
                 .name("orange")
                 .price(10000)
@@ -33,7 +32,6 @@ public class ExternalProductServiceTest {
                 .description("good quality")
                 .build();
         SellerProductRequest request2 = SellerProductRequest.builder()
-                .id(2L)
                 .sellerId(1L)
                 .name("laptop")
                 .price(200000)
@@ -42,7 +40,6 @@ public class ExternalProductServiceTest {
                 .description("good tech")
                 .build();
         SellerProductRequest request3 = SellerProductRequest.builder()
-                .id(3L)
                 .sellerId(2L)
                 .name("phone")
                 .price(90000)
@@ -102,13 +99,14 @@ public class ExternalProductServiceTest {
     void findByUpdate_메서드로_product를_수정할_수_있다() {
         // given
         SellerProductUpdate sellerProductUpdate = SellerProductUpdate.builder()
+                .id(3L)
                 .name("another name")
                 .price(12345)
                 .description("changed description")
                 .build();
 
         // when
-        SellerProductResponse updateProduct = this.externalProductService.update(3L, sellerProductUpdate);
+        SellerProductResponse updateProduct = this.externalProductService.update(sellerProductUpdate);
 
         // then
         assertThat(updateProduct.getName()).isEqualTo("another name");

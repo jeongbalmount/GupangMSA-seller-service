@@ -18,6 +18,7 @@ public class ExternalProductService {
 
     // 등록
     SellerProductResponse create(SellerProductRequest request) {
+
         return connector.save(request);
     }
 
@@ -31,8 +32,8 @@ public class ExternalProductService {
     }
 
     // 수정
-    SellerProductResponse update(Long id, SellerProductUpdate update) {
-        return connector.update(id, update);
+    SellerProductResponse update(SellerProductUpdate update) {
+        return connector.update(update);
     }
 
     // 삭제

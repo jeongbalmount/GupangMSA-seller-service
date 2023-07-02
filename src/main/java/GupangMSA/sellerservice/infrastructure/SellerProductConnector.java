@@ -17,7 +17,7 @@ public interface SellerProductConnector {
     List<SellerProductResponse> findBySellerId(Long sellerId);
 
     // 수정
-    SellerProductResponse update(Long id, SellerProductUpdate sellerProductUpdate);
+    SellerProductResponse update(SellerProductUpdate sellerProductUpdate);
 
     // 삭제
     void delete(Long productId);
