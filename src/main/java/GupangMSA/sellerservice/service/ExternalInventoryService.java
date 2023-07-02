@@ -1,7 +1,7 @@
 package GupangMSA.sellerservice.service;
 
 import GupangMSA.sellerservice.domain.inventory.SellerInventory;
-import GupangMSA.sellerservice.infrastructure.SellerInventoryConnector;
+import GupangMSA.sellerservice.service.port.SellerInventoryConnector;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

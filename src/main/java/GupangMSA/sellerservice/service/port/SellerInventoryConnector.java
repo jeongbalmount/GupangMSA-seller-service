@@ -1,4 +1,4 @@
-package GupangMSA.sellerservice.infrastructure;
+package GupangMSA.sellerservice.service.port;
 
 import GupangMSA.sellerservice.domain.inventory.SellerInventory;
 

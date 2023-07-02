@@ -2,8 +2,8 @@ package GupangMSA.sellerservice.service;
 
 import GupangMSA.sellerservice.domain.inventory.SellerInventory;
 import GupangMSA.sellerservice.domain.product.SellerProductRequest;
-import GupangMSA.sellerservice.infrastructure.SellerInventoryConnector;
-import GupangMSA.sellerservice.infrastructure.SellerProductConnector;
+import GupangMSA.sellerservice.service.port.SellerInventoryConnector;
+import GupangMSA.sellerservice.service.port.SellerProductConnector;
 import GupangMSA.sellerservice.mock.FakeSellerInventoryConnector;
 import GupangMSA.sellerservice.mock.FakeSellerProductConnector;
 import lombok.extern.slf4j.Slf4j;

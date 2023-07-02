@@ -2,9 +2,8 @@ package GupangMSA.sellerservice.mock;
 
 import GupangMSA.sellerservice.domain.inventory.SellerInventory;
 import GupangMSA.sellerservice.domain.product.SellerProductResponse;
-import GupangMSA.sellerservice.infrastructure.SellerInventoryConnector;
-import GupangMSA.sellerservice.infrastructure.SellerProductConnector;
-import org.springframework.beans.factory.annotation.Autowired;
+import GupangMSA.sellerservice.service.port.SellerInventoryConnector;
+import GupangMSA.sellerservice.service.port.SellerProductConnector;
 
 import java.util.ArrayList;
 import java.util.Collections;

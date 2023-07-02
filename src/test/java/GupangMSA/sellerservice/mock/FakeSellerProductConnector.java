@@ -5,7 +5,7 @@ import GupangMSA.sellerservice.domain.product.SellerProductRequest;
 import GupangMSA.sellerservice.domain.product.SellerProductUpdate;
 import GupangMSA.sellerservice.exception.product.ProductDeleteException;
 import GupangMSA.sellerservice.exception.product.ProductUpdateException;
-import GupangMSA.sellerservice.infrastructure.SellerProductConnector;
+import GupangMSA.sellerservice.service.port.SellerProductConnector;
 import lombok.RequiredArgsConstructor;
 
 import java.util.*;

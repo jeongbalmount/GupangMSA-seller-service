@@ -3,7 +3,7 @@ package GupangMSA.sellerservice.service;
 import GupangMSA.sellerservice.domain.Seller;
 import GupangMSA.sellerservice.domain.SellerCreate;
 import GupangMSA.sellerservice.exception.NoSellerException;
-import GupangMSA.sellerservice.infrastructure.SellerRepository;
+import GupangMSA.sellerservice.service.port.SellerRepository;
 import GupangMSA.sellerservice.service.holder.ClockHolder;
 import GupangMSA.sellerservice.service.holder.PasswordHolder;
 import GupangMSA.sellerservice.service.holder.UuidHolder;

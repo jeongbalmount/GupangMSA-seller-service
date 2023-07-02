@@ -1,7 +1,7 @@
 package GupangMSA.sellerservice.mock;
 
 import GupangMSA.sellerservice.domain.Seller;
-import GupangMSA.sellerservice.infrastructure.SellerRepository;
+import GupangMSA.sellerservice.service.port.SellerRepository;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;

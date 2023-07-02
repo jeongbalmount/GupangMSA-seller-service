@@ -4,7 +4,7 @@ import GupangMSA.sellerservice.domain.product.SellerProductResponse;
 import GupangMSA.sellerservice.domain.product.SellerProductRequest;
 import GupangMSA.sellerservice.domain.product.SellerProductUpdate;
 import GupangMSA.sellerservice.exception.product.NoProductException;
-import GupangMSA.sellerservice.infrastructure.SellerProductConnector;
+import GupangMSA.sellerservice.service.port.SellerProductConnector;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
